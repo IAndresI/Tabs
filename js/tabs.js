@@ -1,7 +1,7 @@
 function tabs(tabsContentSelector, tabsParentSelector, activeClass) {
-    let tabcontents = document.querySelectorAll(tabsContentSelector),
-        tabcontentButtons = document.querySelectorAll(tabsParentSelector);
-
+    const tabcontents = document.querySelectorAll(tabsContentSelector),
+          tabcontentButtons = document.querySelectorAll(tabsParentSelector);
+    
     function hideTabs(tab) {
         for(let i = 0;i<tabcontentButtons.length;i++){
             tabcontents[i].style.display = 'none';
