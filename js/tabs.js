@@ -1,5 +1,4 @@
 function tabs(tabsContentSelector, tabsParentSelector, activeClass) {
-    // TABS
     let tabcontents = document.querySelectorAll(tabsContentSelector),
         tabcontentButtons = document.querySelectorAll(tabsParentSelector);
 
@@ -20,4 +19,3 @@ function tabs(tabsContentSelector, tabsParentSelector, activeClass) {
         });
     }
 }
-export default tabs;
