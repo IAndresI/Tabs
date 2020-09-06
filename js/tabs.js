@@ -17,7 +17,7 @@ function tabs({
 
         function showTab(number) {
             for (let i = 0; i < tab_content.length; i++) {
-                if (tab_content[i].getAttribute("data-content") == tab_buttons[number].getAttribute("data-tab")) {
+                if ((tab_content[i].getAttribute("data-content") == tab_buttons[number].getAttribute("data-tab")) || (tab_buttons[number].getAttribute("data-tab") === "all")) {
                     therescontent = true;
                     tab_content[i].style.display = "block";
                 } else {
@@ -50,7 +50,7 @@ function tabs({
                         let lastTime = performance.now();
                         for (let j = 0; j < tab_content.length; j++) {
                             tab_content[j].style.transform = "scaleX(0) scaleY(0)";
-                            if (tab_content[j].getAttribute("data-content") === tab_buttons[i].getAttribute("data-tab")) therescontent = true;
+                            if ((tab_content[j].getAttribute("data-content") === tab_buttons[i].getAttribute("data-tab")) || (tab_buttons[i].getAttribute("data-tab") === "all")) therescontent = true;
                             let animateID;
 
                             function animation() {
@@ -58,7 +58,7 @@ function tabs({
                                 if (currentTime - lastTime >= 200) {
                                     tab_content[j].style.transition = "transform .2s";
                                     tab_content[j].style.display = "none";
-                                    if (tab_content[j].getAttribute("data-content") === tab_buttons[i].getAttribute("data-tab")) {
+                                    if ((tab_content[j].getAttribute("data-content") === tab_buttons[i].getAttribute("data-tab")) || (tab_buttons[i].getAttribute("data-tab") === "all")) {
                                         tab_content[j].style.display = "block";
                                         if (currentTime - lastTime >= 400) {
                                             tab_content[j].style.transform = "scaleX(1) scaleY(1)";
