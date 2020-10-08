@@ -20,14 +20,14 @@ function tabs({
             for (let i = 0; i < tab_content.length; i++) {
                 if ((tab_content[i].getAttribute("data-content") == tab_buttons[number].getAttribute("data-tab")) || (tab_buttons[number].getAttribute("data-tab") === "all")) {
                     therescontent = true;
-                    tab_content[i].style.display = "block";
+                    tab_content[i].style.display = "flex";
                 } else {
                     tab_content[i].style.display = "none";
                 }
                 tab_buttons[number].classList.add(activeClass);
                 if (noContentAlert) {
                     if (!therescontent) {
-                        nothingsFind.style.display = "block";
+                        nothingsFind.style.display = "flex";
                     } else {
                         nothingsFind.style.display = "none";
                     }
@@ -44,12 +44,12 @@ function tabs({
         }
         for (let i = 0; i < tab_buttons.length; i++) {
             tab_buttons[i].addEventListener("click", function (e) {
-                if (!e.target.classList.contains(activeClass)) {
+                if (!tab_buttons[i].classList.contains(activeClass)) {
                     for (let i = 0; i < tab_buttons.length; i++) {
                         tab_buttons[i].classList.remove(activeClass);
                     }
                     if (animate) {
-                        e.target.classList.add(activeClass);
+                        tab_buttons[i].classList.add(activeClass);
                         let lastTime = performance.now();
                         for (let j = 0; j < tab_content.length; j++) {
                             tab_content[j].style.transform = "scaleX(0) scaleY(0)";
@@ -61,7 +61,7 @@ function tabs({
                                 if (currentTime - lastTime >= (animateSpeed / 2)) {
                                     tab_content[j].style.display = "none";
                                     if ((tab_content[j].getAttribute("data-content") === tab_buttons[i].getAttribute("data-tab")) || (tab_buttons[i].getAttribute("data-tab") === "all")) {
-                                        tab_content[j].style.display = "block";
+                                        tab_content[j].style.display = "flex";
                                         if (currentTime - lastTime >= animateSpeed) {
                                             tab_content[j].style.transform = "scaleX(1) scaleY(1)";
                                             cancelAnimationFrame(animateID);
@@ -79,7 +79,7 @@ function tabs({
                     }
                     if (noContentAlert) {
                         if (!therescontent) {
-                            nothingsFind.style.display = "block";
+                            nothingsFind.style.display = "flex";
                         } else {
                             nothingsFind.style.display = "none";
                         }
